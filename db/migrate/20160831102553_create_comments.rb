@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
   		t.integer :user_id, null: false
   		t.reference :commentable, polymorphic: true
 
-  		t.timestamps null: false
+  		t.timestamps(null: false)
   	end
   end
 end
