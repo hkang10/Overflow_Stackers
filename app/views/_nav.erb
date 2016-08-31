@@ -1,9 +1,10 @@
 <nav>
   <ul>
     <% if logged_in? %>
-    <li ><a href="/">Home</a></li>
+    <li ><a href="/questions">Home</a></li>
+    <li ><a href="/sessions/logout">Logout</a></li>
     <% else %>
-    <li><a href="/">Home</a></li>
+    <li><a href="/questions">Home</a></li>
     <li><a href="/sessions/new">Log in</a></li>
     <li><a href="/users/new">Register</a></li>
     <% end %>
