@@ -4,7 +4,7 @@ class CreateUser < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email, null: false
-      t.string :password, null: false
+      t.string :hashed_password, null: false
 
       t.timestamps(null: false)
     end
