@@ -1,0 +1,7 @@
+<%= @vote_count %><br>
+<%= @question.text %><br>
+
+<% @answers.each do |answer| %>
+  <%= answer.text %>
+  <%= answer.vote_count %>
+<% end %>
