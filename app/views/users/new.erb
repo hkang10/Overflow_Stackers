@@ -1,8 +1,4 @@
-<% if @errors %>
-  <% @errors.each do |error| %>
-  <%= erb :"_errors", layout: false, locals: {error: error} %>
-  <% end %>
-<% end %>
+<%= erb :"_errors", layout: false, locals: {errors: @errors} %>
 
 <h1>Bubble Registration</h1>
 

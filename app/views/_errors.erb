@@ -1,1 +1,5 @@
-<p><%= error %></p>
+<% if errors %>
+  <% errors.each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+<% end %>
