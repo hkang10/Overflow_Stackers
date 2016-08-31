@@ -1,6 +1,10 @@
 <%= @question.vote_count %><br>
 <%= @question.text %><br>
 
+<%= erb :"/answers/_new" %>
+
+<br>
+
 <% @answers.each do |answer| %>
   <%= answer.text %>
   <%= answer.vote_count %>

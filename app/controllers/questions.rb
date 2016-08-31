@@ -44,3 +44,8 @@ delete '/questions/:id' do
 
   redirect "/questions"
 end
+
+post "/questions/:id/answers" do
+  @answers = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
+  redirect "/questions/#{params[:id]}"
+end
