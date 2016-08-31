@@ -1,3 +1,8 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <%= erb :"_errors", layout: false, locals: {error: @errors} %>
+  <% end %>
+<% end %>
 <h1>Login Page</h1>
   <form action="/sessions" method="POST">
     <label for="email">Email:</label>
