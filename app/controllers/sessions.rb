@@ -1,3 +1,6 @@
+before do
+  @errors = Array.new
+end
 get "/sessions/new" do
   erb :"/sessions/new"
 end
@@ -9,6 +12,7 @@ post "/sessions" do
     session[:user_id] = @user.id
     redirect "/"
   else
-    redirect "/"
+    @errors << "Invalid Credentials"
+    erb :"/sessions/new"
   end
 end
