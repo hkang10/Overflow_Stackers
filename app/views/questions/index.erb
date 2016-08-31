@@ -1,3 +1,13 @@
 <% @questions.each do |question| %>
-  <a href="/questions/<%=question.id%>"><%= question.text %></a><br>
+  <a href="/questions/<%=question.id%>"><%= question.text %></a>
+
+  <form action="/questions/<%=question.id%>/edit" method="get">
+    <button type="submit">Edit</button></br>
+  </form>
+
+  <form action="/questions/<%=question.id%>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button></br>
+  </form>
+
 <% end %>
