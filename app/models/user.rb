@@ -8,14 +8,14 @@ class User < ActiveRecord::Base
   validates :email, {uniqueness: true}
   validate :check_length
 
-def @password
+def password
    @password ||= BCrypt::Password.new(hashed_password)
 end
 
-def @password=(new_password)
+def password=(new_password)
   @input_password = new_password
- @password = BCrypt::Password.create(new_password)
- self.hashed_password = @password
+  @password = BCrypt::Password.create(new_password)
+  self.hashed_password = @password
 end
 
 def authenticate(user_input_password)
