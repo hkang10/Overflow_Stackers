@@ -1,3 +1,3 @@
 get '/' do
-  redirect '/horses'
+  redirect '/sessions/new'
 end
