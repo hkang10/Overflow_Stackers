@@ -6,6 +6,7 @@
 # 	else
 # 		@errors = "Invalid input"
 # 		erb :"/"
+# 	end
 # end
 
 # get "/answers/:id" do
