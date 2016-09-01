@@ -6,6 +6,7 @@
 # 	else
 # 		@errors = "Invalid input"
 # 		erb :"/"
+# 	end
 # end
 
 # get "/answers/:id" do
@@ -32,4 +33,28 @@ delete "/answers/:id" do
   @answer.destroy
 
   redirect :"/questions/#{question.id}"
+end
+
+post '/answers/:id/upvote' do
+    answer = Answer.find(params[:id])
+    answer.votes.create(value: 1, user_id: session[:user_id])
+    question_id = answer.question_id
+  # if request.xhr?
+  #   # content_type :json
+  #   answer.votes.count.to_s
+  # else
+    redirect "/questions/#{question_id}"
+  # end
+end
+
+post '/answers/:id/downvote' do
+    answer = Answer.find(params[:id])
+    answer.votes.create(value: -1, user_id: session[:user_id])
+    question_id = answer.question_id
+  # if request.xhr?
+  #   # content_type :json
+  #   answer.votes.count.to_s
+  # else
+    redirect "/questions/#{question_id}"
+  # end
 end

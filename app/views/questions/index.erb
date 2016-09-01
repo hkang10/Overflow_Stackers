@@ -1,4 +1,15 @@
 <% @questions.each do |question| %>
+	<form action="/questions/<%= question.id %>/upvote" method="POST">
+		<label for="upvote">This question is great!</label>
+	  <button type="submit" name="question_vote" value="upvote_points"></button>
+	</form>
+	<form action="/questions/<%= question.id %>/downvote" method="POST">
+		<label for="downvote">This question sucks ass!</label>
+	  <button type="submit" name="question_vote" value="downvote_points"></button>
+	</form>
+
+	Score: <%= question.vote_count %><br>
+
   <a href="/questions/<%=question.id%>"><%= question.text %></a>
 
   <form action="/questions/<%=question.id%>/edit" method="get">
