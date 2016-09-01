@@ -8,6 +8,7 @@ $(document).ready(function(){
     var str = $form.serialize();
 
     // console.log(str);
+
     $.ajax({
       method: "POST",
       url: url,
@@ -15,6 +16,7 @@ $(document).ready(function(){
     }).done(function( response ) {
     $('#answer-list').prepend(response);
     $($form).trigger('reset');
+
     });
   });
 

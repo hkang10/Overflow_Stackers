@@ -19,7 +19,6 @@ class Answer < ActiveRecord::Base
     if self.text == ""
       errors.add(:message, "Invalid answer input")
     end
-
   end
 
 end

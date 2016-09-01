@@ -51,10 +51,30 @@ end
 post "/questions/:id/answers" do
   @answer = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
 
-
   if request.xhr?
       erb :'answers/_show', layout: false, locals: { answer: @answer }
   else
     redirect "/questions"
+
   end
+
+end
+
+post '/questions/:id/upvote' do
+    question = Question.find(params[:id])
+    question.votes.create(value: 1,user_id: session[:user_id])
+
+    redirect "/questions"
+
+end
+
+post '/questions/:id/downvote' do
+    question = Question.find(params[:id])
+    question.votes.create(value: -1,user_id: session[:user_id] )
+  # if request.xhr?
+  #   # content_type :json
+  #   question.votes.count.to_s
+  # else
+    redirect "/questions"
+  # end
 end

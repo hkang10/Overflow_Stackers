@@ -8,7 +8,9 @@
 <%= erb :"/answers/_new" %>
 
 <br>
+<%= erb :"/_errors",layout: false,locals: {errors: @errors} %>
 <ul id="answer-list">
+
   <% @answers.each do |answer_to_show| %>
 
     <%= erb :"/answers/_show", layout: false, locals: {answer: answer_to_show } %>
