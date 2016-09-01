@@ -49,15 +49,15 @@ end
 # creating answer here?
 
 post "/questions/:id/answers" do
-  @answer = Answer.new(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
-
+  @answer = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
+  # p @answer
   if request.xhr?
-    if @answer.save
+    # if @answer.save
       erb :'/answers/_new', layout: false, locals: { answer: @answer }
-    else
-      status 422
-      redirect "/questions/#{params[:id]}"
-    end
+    # else
+    #   status 422
+    #   redirect "/questions/#{params[:id]}"
+    # end
   else
     @answer.save
     redirect "/questions"
