@@ -14,13 +14,25 @@
 #   question_id
 #   erb :"/"
 # end
-
+ 
 post "/answers/:id/comments" do
   @comment = Comment.create(text: params[:comment], user_id: session[:user_id], commentable_id: params[:id], commentable_type: "Answer")
   answer = Answer.find(params[:id])
   question_id = answer.question_id
 
-  redirect "/questions/#{question_id}"
+  if request.xhr?
+    erb :'comments/_show', layout: false, locals: { comment: @comment }
+  else
+    redirect "/questions/#{question_id}"
+  end
+end
+
+delete "/answers/:id" do
+  @answer = Answer.find(params[:id])
+  question = @answer.question
+  @answer.destroy
+
+  redirect :"/questions/#{question.id}"
 end
 
 post '/answers/:id/upvote' do

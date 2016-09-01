@@ -50,12 +50,10 @@ end
 
 post "/questions/:id/answers" do
   @answer = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
-
-  if  @answer && request.xhr?
-    "#{@answer.text}  #{@answer.vote_count}"
+  if request.xhr?
+      erb :'answers/_show', layout: false, locals: { answer: @answer }
   else
-    @errors = @answer.errors.full_messages
-    erb :"/questions/show"
+    redirect "/questions"
   end
   # if request.xhr?
   #   if @answer.save
