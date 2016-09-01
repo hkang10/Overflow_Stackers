@@ -1,8 +1,12 @@
-post "/answers" do
-	p params
-	@answers = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
-	erb :"/questions"
-end
+# post "/answers" do
+# 	@answers = Answer.new(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
+#
+# 	if @answer.save
+#
+# 	else
+# 		@errors = "Invalid input"
+# 		erb :"/"
+# end
 
 # get "/answers/:id" do
 #   @answer = Answer.find(params[:id])
@@ -17,4 +21,3 @@ post "/answers/:id/comments" do
 
   redirect "/questions/#{question_id}"
 end
-
