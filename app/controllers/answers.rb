@@ -27,6 +27,10 @@ post "/answers/:id/comments" do
   end
 end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e
 delete "/answers/:id" do
   @answer = Answer.find(params[:id])
   question = @answer.question
@@ -58,3 +62,7 @@ post '/answers/:id/downvote' do
     redirect "/questions/#{question_id}"
   # end
 end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e

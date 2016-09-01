@@ -10,7 +10,13 @@
 <br>
 <%= erb :"/_errors",layout: false,locals: {errors: @errors} %>
 <ul id="answer-list">
+<<<<<<< HEAD
   <% @answers.each do |answer_to_show| %>
+=======
+
+  <% @answers.each do |answer_to_show| %>
+
+>>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e
     <%= erb :"/answers/_show", layout: false, locals: {answer: answer_to_show } %>
 
   <% end %>
