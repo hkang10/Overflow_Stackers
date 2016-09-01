@@ -50,18 +50,10 @@ end
 
 post "/questions/:id/answers" do
   @answer = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
-<<<<<<< HEAD
-=======
-
->>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e
   if request.xhr?
       erb :'answers/_show', layout: false, locals: { answer: @answer }
   else
     redirect "/questions"
-<<<<<<< HEAD
-=======
-
->>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e
   end
 
 end
