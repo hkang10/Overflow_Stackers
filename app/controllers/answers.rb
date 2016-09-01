@@ -13,7 +13,7 @@
 #   question_id
 #   erb :"/"
 # end
-
+ 
 post "/answers/:id/comments" do
   @comment = Comment.create(text: params[:comment], user_id: session[:user_id], commentable_id: params[:id], commentable_type: "Answer")
   answer = Answer.find(params[:id])
