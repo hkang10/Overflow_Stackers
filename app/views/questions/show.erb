@@ -10,33 +10,10 @@
 <br>
 <%= erb :"/_errors",layout: false,locals: {errors: @errors} %>
 <ul id="answer-list">
-  <% @answers.each do |answer| %>
-  <label for="answer">Answer: </label><br>
-  <li id="helom"><%= answer.text %> <%= answer.vote_count %></li>
 
-  <form action='/answers/<%= answer.id %>/upvote' method="POST">
-    <label for="upvote">This answer is great!</label>
-    <button type="submit" name="answer_vote" value="upvote_points"></button>
-  </form>
-  <form action='/answers/<%= answer.id %>/downvote' method="POST">
-    <label for="downvote">This answer sucks ass!</label>
-    <button type="submit" name="answer_vote" value="downvote_points"></button>
-  </form>
+  <% @answers.each do |answer_to_show| %>
 
-  Score: <%= answer.vote_count %>
+    <%= erb :"/answers/_show", layout: false, locals: {answer: answer_to_show } %>
 
-  <form action="/answers/<%= answer.id %>/comments" method="POST">
-    <label for="comment">Comment:</label>
-    <input type="text" name="comment" placeholder="Comment">
-    <br>
-    <input type="submit" value="Submit">
-  </form>
-
-  <ul>
-    <label for="comment">Comment: </label>
-    <% answer.comments.each do |comment| %>
-    <li> <%= comment.text %> </li>
-    <% end %>
-  </ul>
-<% end %>
+  <% end %>
 </ul>
