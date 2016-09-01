@@ -72,7 +72,7 @@ end
 
 post '/questions/:id/upvote' do
     question = Question.find(params[:id])
-    question.votes.create(value: 1)
+    question.votes.create(value: 1,user_id: session[:user_id])
   # if request.xhr?
   #   # content_type :json
   #   question.votes.count.to_s
@@ -83,7 +83,7 @@ end
 
 post '/questions/:id/downvote' do
     question = Question.find(params[:id])
-    question.votes.create(value: -1)
+    question.votes.create(value: -1,user_id: session[:user_id] )
   # if request.xhr?
   #   # content_type :json
   #   question.votes.count.to_s
