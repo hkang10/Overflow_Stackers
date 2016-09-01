@@ -8,13 +8,12 @@
 <%= erb :"/answers/_new" %>
 
 <br>
+<%= erb :"/_errors",layout: false,locals: {errors: @errors} %>
 <ul id="answer-list">
   <% @answers.each do |answer| %>
   <label for="answer">Answer: </label><br>
-  <li><%= answer.text %></li>
-  <% end %>
+  <li id="helom"><%= answer.text %> <%= answer.vote_count %></li>
 
-<% @answers.each do |answer| %>
   <form action='/answers/<%= answer.id %>/upvote' method="POST">
     <label for="upvote">This answer is great!</label>
     <button type="submit" name="answer_vote" value="upvote_points"></button>
