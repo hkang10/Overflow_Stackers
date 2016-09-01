@@ -14,8 +14,8 @@
     <label for="downvote">This answer sucks ass!</label>
     <button type="submit" name="answer_vote" value="downvote_points"></button>
   </form>
+  Answer: <%= answer.text %><br>
   Score: <%= answer.vote_count %>
-  <%= answer.text %>
 
  <form action="/answers/<%= answer.id %>/comments" method="POST">
     <label for="comment">Comment:</label>
