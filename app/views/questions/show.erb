@@ -1,11 +1,30 @@
-<%= @question.vote_count %><br>
-<%= @question.text %><br>
+<h2>Question</h2>
+<p><%= @question.text %></p>
+
+<h6>Vote</h6>
+<p><%= @question.vote_count %></p>
+
 
 <%= erb :"/answers/_new" %>
 
 <br>
+<ul id="answer-list">
+  <% @answers.each do |answer| %>
+  <label for="answer">Answer: </label><br>
+  <li><%= answer.text %> <%= answer.vote_count %></li>
 
-<% @answers.each do |answer| %>
-  <%= answer.text %>
-  <%= answer.vote_count %>
+  <form action="/answers/<%= answer.id %>/comments" method="POST">
+    <label for="comment">Comment:</label>
+    <input type="text" name="comment" placeholder="Comment">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <ul>
+    <label for="comment">Comment: </label>
+    <% answer.comments.each do |comment| %>
+    <li> <%= comment.text %> </li>
+    <% end %>
+  </ul>
 <% end %>
+</ul>
