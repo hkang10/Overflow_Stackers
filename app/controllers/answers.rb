@@ -25,7 +25,7 @@ end
 
 post '/answers/:id/upvote' do
     answer = Answer.find(params[:id])
-    answer.votes.create(value: 1)
+    answer.votes.create(value: 1, user_id: session[:user_id])
     question_id = answer.question_id
   # if request.xhr?
   #   # content_type :json
@@ -37,7 +37,7 @@ end
 
 post '/answers/:id/downvote' do
     answer = Answer.find(params[:id])
-    answer.votes.create(value: -1)
+    answer.votes.create(value: -1, user_id: session[:user_id])
     question_id = answer.question_id
   # if request.xhr?
   #   # content_type :json
