@@ -1,10 +1,11 @@
 $(document).ready(function(){
 
-  $('form[class="answer"]').on('submit', function(event){
+  $('.answer').on('submit', function(event){
     event.preventDefault();
-    var url = $(this).attr('action');
+    var $form = $(this)
+    var url = $form.attr('action');
     // console.log(url)
-    var str = $(this).serialize();
+    var str = $form.serialize();
 
     // console.log(str);
     $.ajax({
@@ -12,7 +13,7 @@ $(document).ready(function(){
       url: url,
       data: str
     }).done(function( response ) {
-      // $(response).appendTo('#answer-list');
+      $('#answer-list li:nth-child(1)').text(response);
       console.log(response);
     });
   })
