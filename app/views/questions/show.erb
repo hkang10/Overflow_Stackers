@@ -8,10 +8,11 @@
 <%= erb :"/answers/_new" %>
 
 <br>
+<%= erb :"/_errors",layout: false,locals: {errors: @errors} %>
 <ul id="answer-list">
   <% @answers.each do |answer| %>
   <label for="answer">Answer: </label><br>
-  <li><%= answer.text %> <%= answer.vote_count %></li>
+  <li id="helom"><%= answer.text %> <%= answer.vote_count %></li>
 
   <form action="/answers/<%= answer.id %>/comments" method="POST">
     <label for="comment">Comment:</label>
