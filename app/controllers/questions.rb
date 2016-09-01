@@ -49,3 +49,25 @@ post "/questions/:id/answers" do
   @answers = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
   redirect "/questions/#{params[:id]}"
 end
+
+post '/questions/:id/upvote' do
+    question = Question.find(params[:id])
+    question.votes.create(value: 1)
+  # if request.xhr?
+  #   # content_type :json
+  #   question.votes.count.to_s
+  # else
+    redirect "/questions"
+  # end
+end
+
+post '/questions/:id/downvote' do
+    question = Question.find(params[:id])
+    question.votes.create(value: -1)
+  # if request.xhr?
+  #   # content_type :json
+  #   question.votes.count.to_s
+  # else
+    redirect "/questions"
+  # end
+end

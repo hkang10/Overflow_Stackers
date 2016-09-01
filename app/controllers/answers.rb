@@ -18,3 +18,27 @@ post "/answers/:id/comments" do
   redirect "/questions/#{question_id}"
 end
 
+post '/answers/:id/upvote' do
+    answer = Answer.find(params[:id])
+    answer.votes.create(value: 1)
+    question_id = answer.question_id
+  # if request.xhr?
+  #   # content_type :json
+  #   answer.votes.count.to_s
+  # else
+    redirect "/questions/#{question_id}"
+  # end
+end
+
+post '/answers/:id/downvote' do
+    answer = Answer.find(params[:id])
+    answer.votes.create(value: -1)
+    question_id = answer.question_id
+  # if request.xhr?
+  #   # content_type :json
+  #   answer.votes.count.to_s
+  # else
+    redirect "/questions/#{question_id}"
+  # end
+end
+
