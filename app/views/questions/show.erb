@@ -1,9 +1,17 @@
-<%= @question.vote_count %><br>
-<%= @question.text %><br>
+<h2>Question</h2>
+<p><%= @question.text %></p>
+
+<h6>Vote</h6>
+<p><%= @question.vote_count %></p>
+
 
 <%= erb :"/answers/_new" %>
 
 <br>
+<ul id="answer-list">
+  <% @answers.each do |answer| %>
+  <label for="answer">Answer: </label><br>
+  <li><%= answer.text %> <%= answer.vote_count %></li>
 
 <% @answers.each do |answer| %>
   <form action='/answers/<%= answer.id %>/upvote' method="POST">
@@ -14,19 +22,22 @@
     <label for="downvote">This answer sucks ass!</label>
     <button type="submit" name="answer_vote" value="downvote_points"></button>
   </form>
+  
   Answer: <%= answer.text %><br>
   Score: <%= answer.vote_count %>
 
- <form action="/answers/<%= answer.id %>/comments" method="POST">
+  <form action="/answers/<%= answer.id %>/comments" method="POST">
     <label for="comment">Comment:</label>
     <input type="text" name="comment" placeholder="Comment">
     <br>
     <input type="submit" value="Submit">
-</form>
+  </form>
 
   <ul>
-  <% answer.comments.each do |comment| %>
-   <li> <%= comment.text %> </li>
+    <label for="comment">Comment: </label>
+    <% answer.comments.each do |comment| %>
+    <li> <%= comment.text %> </li>
     <% end %>
   </ul>
 <% end %>
+</ul>
