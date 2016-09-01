@@ -45,7 +45,21 @@ delete '/questions/:id' do
   redirect "/questions"
 end
 
+# Where should this live? negative: hidden field vs nested route
+# creating answer here?
+
 post "/questions/:id/answers" do
-  @answers = Answer.create(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
-  redirect "/questions/#{params[:id]}"
+  @answer = Answer.new(text: params[:answer], user_id: session[:user_id], question_id: params[:id])
+
+  if request.xhr?
+    if @answer.save
+      erb :'/answers/_new', layout: false, locals: { answer: @answer }
+    else
+      status 422
+      redirect "/questions/#{params[:id]}"
+    end
+  else
+    @answer.save
+    redirect "/questions"
+  end
 end
