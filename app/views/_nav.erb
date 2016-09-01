@@ -1,12 +1,12 @@
 <nav>
   <ul>
     <% if logged_in? %>
-    <li ><a href="/questions">Home</a></li>
-    <li ><a href="/sessions/logout">Logout</a></li>
+        <a href="/questions">Home</a><br>
+        <a href="/sessions/logout">Logout</a>
     <% else %>
-    <li><a href="/questions">Home</a></li>
-    <li><a href="/sessions/new">Log in</a></li>
-    <li><a href="/users/new">Register</a></li>
+        <a href="/questions">Home</a><br>
+        <a href="/sessions/new">Log in</a><br>
+        <a href="/users/new">Register</a>
     <% end %>
   </ul>
 </nav>

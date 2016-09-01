@@ -1,24 +1,14 @@
+body {
+   display: inline-block;
+   padding: 10px 10px 0px 30px;
+   font-family: Avenir, Arial, sans-serif;
+   font-size: 12pt;
+   color: #000;
+}
+
 .inline {
    display: inline-block;
    float: left;
-}
-
-.arrow-up {
-  width: 0; 
-  height: 0; 
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  
-  border-bottom: 3px solid black;
-}
-
-.arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  
-  border-top: 3px solid #f00;
 }
 
 .button {
@@ -52,3 +42,26 @@
    border-top-color: #1b435e;
    background: #1b435e;
    }
+
+a:link {
+   color: #8080ff;
+   text-decoration: none;
+}
+
+a:visited {
+   color: #ff8b00;
+}
+
+a:hover {
+   color: #ff8b00;
+   background-color: #fff;
+   border-top-color: #28597a;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   padding: 0px 1px 0px 1px;
+}
+
+a:active {
+   color: #ffffff;
+}

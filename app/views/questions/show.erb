@@ -1,7 +1,7 @@
 <h2>Question</h2>
 <p><%= @question.text %></p>
 
-<h6>Vote</h6>
+<h3>Vote</h3>
 <p><%= @question.vote_count %></p>
 
 
@@ -12,7 +12,7 @@
 <ul id="answer-list">
   <% @answers.each do |answer| %>
   <label for="answer">Answer: </label><br>
-  <li id="helom"><%= answer.text %></li>
+  <li id="helom"><%= answer.text %> </li>
 
   <form action='/answers/<%= answer.id %>/upvote' method="POST">
     <button class="fa fa-thumbs-up inline" type="submit" name="answer_vote" value="upvote_points"></button>
