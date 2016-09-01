@@ -8,10 +8,6 @@ $(document).ready(function(){
     var str = $form.serialize();
 
     // console.log(str);
-<<<<<<< HEAD
-=======
-
->>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e
     $.ajax({
       method: "POST",
       url: url,
@@ -19,10 +15,6 @@ $(document).ready(function(){
     }).done(function( response ) {
     $('#answer-list').prepend(response);
     $($form).trigger('reset');
-<<<<<<< HEAD
-=======
-
->>>>>>> 33a1025ea9b73208d3d6d0bbcad0277f85fec83e
     });
   });
 
