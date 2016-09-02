@@ -1,5 +1,6 @@
 <nav>
   <ul>
+  <div id="nav">
     <% if logged_in? %>
         <a href="/questions">Home</a><br>
         <a href="/sessions/logout">Logout</a>
@@ -8,5 +9,6 @@
         <a href="/sessions/new">Log in</a><br>
         <a href="/users/new">Register</a>
     <% end %>
+  </div>
   </ul>
 </nav>
